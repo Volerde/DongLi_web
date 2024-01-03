@@ -9,21 +9,35 @@ const api = ref("")
 const data = ref([])
 const router = useRouter()
 const getRes = () => {
-  axios.get("/api" + api.value)
-    .then((res) => {
-      data.value = res.data.data;
-      console.log("/api" + api.value);
-      if (res.data.content != "") {
+  if (api.value = "/getNum") {
+    axios.get("/api" + api.value)
+      .then((res) => {
+        data.value = res.data
+        console.log("/api" + api.value);
         router.push({
-          path: "/article",
+          path: "/echart",
           query: {
             "api": api.value
           }
         })
-      }
-    }).catch(() => {
-      data.value = []
-    })
+      })
+  } else {
+    axios.get("/api" + api.value)
+      .then((res) => {
+        data.value = res.data.data;
+        console.log("/api" + api.value);
+        if (res.data.content != "") {
+          router.push({
+            path: "/article",
+            query: {
+              "api": api.value
+            }
+          })
+        }
+      }).catch(() => {
+        data.value = []
+      })
+  }
 }
 
 const getHeaderBarValue = (value: string) => {

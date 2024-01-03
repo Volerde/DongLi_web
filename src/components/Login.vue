@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 import { ref, defineComponent, Ref } from 'vue';
 import { userLogin } from '../util/login';
 
@@ -57,4 +57,15 @@ export default defineComponent({
             </el-form-item>
         </el-form>
     </div>
+</template> -->
+<script setup lang="ts">
+
+</script>
+
+<template>
+  
 </template>
+
+<style scoped>
+
+</style>

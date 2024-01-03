@@ -1,33 +1,54 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import Home from './views/Home.vue';
+import { ref } from 'vue'
+import axios from 'axios'
+// import Home from './views/Home.vue';
+import HeaderBar from './components/HeaderBar.vue'
+// import IndexComponent from './pages/IndexComponent.vue';
+const api = ref("")
+const data = ref([])
+
+const getRes = () => {
+  axios.get("localhost:8080" + api)
+    .then((res) => {
+      data.value = res.data.data;
+      console.log("localhost:8080" + api.value);
+    })
+}
 </script>
 
 <template>
-  <!-- <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div> -->
-  <router-view></router-view>
-  <Home></Home>
-  <HelloWorld msg="Vite + Vue" />
+  <el-container>
+    <el-header>
+      <HeaderBar />
+    </el-header>
+    <el-main>
+      <div class="search">
+        <el-input v-model="api" placeholder="Please input">
+          <template #prepend>Http://</template>
+          <template #append>
+            <el-button @click="getRes">搜索</el-button>
+          </template>
+        </el-input>
+      </div>
+      <!-- <IndexComponent /> -->
+      <!-- <router-view></router-view> -->
+      <RouterView :res=data></RouterView>
+    </el-main>
+    <el-footer>
+
+    </el-footer>
+  </el-container>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.search {
+  max-width: 50%;
+  margin: 50px auto 50px auto;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.el-input {
+  display: flex;
+  justify-content: center;
+  min-height: 40px;
 }
 </style>

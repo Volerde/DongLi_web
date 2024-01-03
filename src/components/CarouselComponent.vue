@@ -1,20 +1,14 @@
-<!-- <script setup lang="ts">
-import { ref } from 'vue'
-import axios from 'axios'
-const carouselImageList = ref([])
-
-axios.get("").then((res) => {
-    carouselImageList.value = res.data
-})
+<script setup lang="ts">
+defineProps<{ imageList: [] }>()
 
 
 </script>
 
 <template>
     <div>
-        <el-carousel trigger="click" height="900px">
-            <el-carousel-item>
-                <img src="">
+        <el-carousel trigger="click" height="500px">
+            <el-carousel-item v-for="(value, index) in imageList" :key="index">
+                <img :src="value.URL" class="fit-carousel">
             </el-carousel-item>
         </el-carousel>
     </div>
@@ -32,15 +26,7 @@ axios.get("").then((res) => {
 /* .el-carousel {
     min-width: calc(100vh);
 } */
-</style> -->
-<script setup lang="ts">
-
-</script>
-
-<template>
-  
-</template>
-
-<style scoped>
-
+.fit-carousel {
+    max-height: 500px;
+}
 </style>

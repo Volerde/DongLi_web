@@ -18,8 +18,9 @@ map.set("3-2", "/know/map")
 map.set("3-3", "/know/yanxue")
 map.set("3-4", "/know/picture")
 
-const handleSelect = (key: string, keyPath: string[]) => {
-    console.log(key, keyPath);
+map.set("4", "/getNum")
+
+const handleSelect = (key: string, _keyPath: string[]) => {
     emit("getHeaderBarValue", map.get(key))
 }
 </script>

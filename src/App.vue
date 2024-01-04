@@ -9,7 +9,7 @@ const api = ref("")
 const data = ref([])
 const router = useRouter()
 const getRes = () => {
-  if (api.value = "/getNum") {
+  if (api.value == "/getNum") {
     axios.get("/api" + api.value)
       .then((res) => {
         data.value = res.data
@@ -42,6 +42,8 @@ const getRes = () => {
 
 const getHeaderBarValue = (value: string) => {
   api.value = value
+  console.log(api.value);
+
 }
 </script>
 
@@ -61,7 +63,7 @@ const getHeaderBarValue = (value: string) => {
         </el-col>
         <el-col :span="1">
           <RouterLink to="/">
-            <el-button class="el-input" @click="getRes">搜索</el-button>
+            <el-button class="el-input" @click="getRes">调用</el-button>
           </RouterLink>
         </el-col>
       </el-row>

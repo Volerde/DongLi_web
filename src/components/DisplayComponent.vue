@@ -7,22 +7,22 @@ let articleRes = ""
 
 
 // 匠心传承
-map.set(368, "/culture/Ingenuity/tie")
-map.set(380, "/culture/Ingenuity/jiu")
-map.set(395, "/culture/Ingenuity/bianzhu")
-map.set(409, "/culture/Ingenuity/caobian")
-map.set(420, "/culture/Ingenuity/tao")
-map.set(432, "/culture/Ingenuity/fuzhu")
+map.set(38, "/culture/Ingenuity/tie")
+map.set(49, "/culture/Ingenuity/jiu")
+map.set(62, "/culture/Ingenuity/bianzhu")
+map.set(74, "/culture/Ingenuity/caobian")
+map.set(83, "/culture/Ingenuity/tao")
+map.set(93, "/culture/Ingenuity/fuzhu")
 // 建筑工艺
-map.set(447, "/culture/architecture/mudiao")
-map.set(467, "/culture/architecture/huisu")
-map.set(483, "/culture/architecture/dougong")
-map.set(500, "/culture/architecture/muchuang")
+map.set(106, "/culture/architecture/mudiao")
+map.set(125, "/culture/architecture/huisu")
+map.set(139, "/culture/architecture/dougong")
+map.set(154, "/culture/architecture/muchuang")
 //东漓美图
-map.set(548, "/know/picture/craftsman")
-map.set(569, "/know/picture/minsu")
-map.set(589, "/know/picture/view")
-map.set(636, "/know/picture/xiangtu")
+map.set(194, "/know/picture/craftsman")
+map.set(215, "/know/picture/minsu")
+map.set(235, "/know/picture/view")
+map.set(282, "/know/picture/xiangtu")
 
 const driveToArticle = (id) => {
     articleRes = map.get(id)
@@ -32,6 +32,8 @@ const driveToArticle = (id) => {
             "api": articleRes
         }
     })
+    console.log(articleRes);
+
 }
 </script>
 

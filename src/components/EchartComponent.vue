@@ -28,7 +28,9 @@ const echartData = ref([])
 const queryArticle = (api) => {
     axios.get("/api" + api)
         .then((res) => {
-            echartData.value = res.data
+            echartData.value = res.data.data
+            console.log(echartData.value);
+
         })
 }
 
@@ -44,7 +46,7 @@ const barChartData = computed(() => {
             {
                 data: [0],
                 label: "数量",
-                backgroundColor: "#39c5bb",
+                backgroundColor: "#ffaaaa",
             },
         ],
     };
@@ -60,7 +62,18 @@ const chartOptions = {
 </script>
 
 <template>
-    <Bar class="chart" :data="barChartData" :options="chartOptions" />
+    <div>
+        <Bar class="chart align" :data="barChartData" :options="chartOptions" />
+    </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.chart {
+    width: 50%;
+    height: calc(50vh);
+}
+
+.align {
+    margin: 100px auto;
+}
+</style>
